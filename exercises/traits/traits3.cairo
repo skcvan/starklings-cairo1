@@ -28,14 +28,14 @@ trait AnimalTrait<T> {
 }
 
 trait FishTrait {
-    fn swim(ref self: Fish) -> ();
+    fn swim(self: Fish) -> ();
 }
 
 trait DogTrait {
-    fn walk(ref self: Dog) -> ();
+    fn walk(self: Dog) -> ();
 }
 
-impl AnimalFishImpl of AnimalTrait<Fish> {
+impl AnimalTrait<Fish> for Fish {
     fn new() -> Fish {
         Fish { noise: 'blub', distance: 0 }
     }
@@ -47,7 +47,7 @@ impl AnimalFishImpl of AnimalTrait<Fish> {
     }
 }
 
-impl AnimalDogImpl of AnimalTrait<Dog> {
+impl AnimalTrait<Dog> for Dog {
     fn new() -> Dog {
         Dog { noise: 'woof', distance: 0 }
     }
@@ -59,9 +59,17 @@ impl AnimalDogImpl of AnimalTrait<Dog> {
     }
 }
 
-// TODO: implement FishTrait for the type Fish
+impl FishTrait for Fish {
+    fn swim(self: Fish) -> () {
+        self.distance += 1_u32;
+    }
+}
 
-// TODO: implement DogTrait for the type Dog
+impl DogTrait for Dog {
+    fn walk(self: Dog) -> () {
+        self.distance += 1_u32;
+    }
+}
 
 #[test]
 fn test_traits3() {
