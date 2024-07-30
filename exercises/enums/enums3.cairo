@@ -8,6 +8,11 @@ use debug::PrintTrait;
 
 #[derive(Drop, Copy)]
 enum Message { // TODO: implement the message variant types based on their usage below
+    ChangeColor:(u8,u8,u8),
+    Echo:felt252,
+    Move:Point,
+    Quit
+    
 }
 
 #[derive(Drop, Copy)]
@@ -50,8 +55,14 @@ impl StateImpl of StateTrait {
     }
 
     fn process(
-        ref self: State, message: Message
+        ref self: State, message: Message 
     ) { // TODO: create a match expression to process the different message variants
+        match message{
+             Message::ChangeColor(color)=>self.color=color,
+            Message::Echo=>{},
+            Message::Move(pos)=>self.position=pos,
+            Message::Quit=>self.quit=true
+        }
     }
 }
 
