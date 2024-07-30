@@ -7,9 +7,13 @@
 // I AM NOT DONE
 
 // Put your function here!
-// fn calculate_price_of_apples{
-
-// }
+fn calculate_price_of_apples(numbers:u32)->u32{
+      if numbers<=40{
+          return numbers*3;
+      }else{
+            return numbers*2;
+      }
+}
 
 // Do not change the tests!
 #[test]
