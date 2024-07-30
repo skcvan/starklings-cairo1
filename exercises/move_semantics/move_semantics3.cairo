@@ -12,18 +12,18 @@ use clone::Clone;
 use debug::PrintTrait;
 
 fn main() {
-    let arr0 = ArrayTrait::new();
+    let arr0: Array<felt252> = ArrayTrait::new();
 
     let mut arr1 = fill_arr(arr0);
 
-    arr1.clone().print();
+    print(arr1.span());
 
     arr1.append(88);
 
-    arr1.clone().print();
+    print(arr1.span());
 }
 
-fn fill_arr(arr: Array<felt252>) -> Array<felt252> {
+fn fill_arr(mut arr: Array<felt252>) -> Array<felt252> {
     arr.append(22);
     arr.append(44);
     arr.append(66);
