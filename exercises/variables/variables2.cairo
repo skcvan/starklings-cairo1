@@ -5,7 +5,7 @@
 use debug::PrintTrait;
 
 fn main() {
-    let x;
+    let x=0;
     if x == 10 {
        println!("x is ten! ");
     } else {
