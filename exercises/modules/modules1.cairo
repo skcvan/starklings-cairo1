@@ -5,17 +5,17 @@
 // I AM NOT DONE
 
 mod restaurant {
-    pub fn take_order() - felt252 {
+    pub fn take_order() -> felt252 {
         'order_taken'
     }
 }
 
 #[test]
 fn test_mod_fn() {
-    
+ 
     let order_result = restaurant::take_order();
 
-    assert(order_result == 'order_taken', '订单未被接收');
+    assert(order_result == 'order_taken', 'Order not taken');
 }
 
 #[cfg(test)]
@@ -24,9 +24,9 @@ mod tests {
 
     #[test]
     fn test_super_fn() {
-       
+    
         let order_result = restaurant::take_order();
 
-        assert(order_result == 'order_taken', '订单未被接收');
+        assert(order_result == 'order_taken', 'Order not taken');
     }
 }
