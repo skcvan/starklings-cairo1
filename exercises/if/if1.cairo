@@ -7,6 +7,10 @@ fn bigger(a: usize, b: usize) -> usize { // Complete this function to return the
 // Do not use:
 // - another function call
 // - additional variables
+     if a>b{
+         return a;
+     }
+     return b;
 }
 
 // Don't mind this for now :)
